@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cosmic Space Weather Design System - NASA Hackathon Theme */
+
+@layer base {
+  :root {
+    /* Deep Space Background */
+    --background: 225 39% 7%;
+    --foreground: 210 100% 98%;
+
+    /* Cosmic Cards & Surfaces */
+    --card: 225 27% 12%;
+    --card-foreground: 210 100% 98%;
+
+    /* Interactive Elements */
+    --popover: 225 27% 15%;
+    --popover-foreground: 210 100% 98%;
+
+    /* Aurora Primary Colors */
+    --primary: 195 100% 70%;
+    --primary-foreground: 225 39% 7%;
+
+    /* Nebula Secondary */
+    --secondary: 225 27% 18%;
+    --secondary-foreground: 210 100% 98%;
+
+    /* Cosmic Dust Muted */
+    --muted: 225 27% 15%;
+    --muted-foreground: 217 32% 65%;
+
+    /* Solar Flare Accent */
+    --accent: 290 100% 70%;
+    --accent-foreground: 225 39% 7%;
+
+    /* Warning/Alert Colors */
+    --destructive: 0 100% 67%;
+    --destructive-foreground: 210 100% 98%;
+
+    /* Cosmic Borders */
+    --border: 225 27% 20%;
+    --input: 225 27% 20%;
+    --ring: 195 100% 70%;
+
+    /* Custom Space Theme Variables */
+    --aurora-green: 120 100% 75%;
+    --aurora-blue: 195 100% 70%;
+    --aurora-purple: 290 100% 70%;
+    --solar-orange: 25 100% 65%;
+    --cosmic-purple: 260 100% 65%;
+    --space-navy: 225 39% 7%;
+    --nebula-pink: 320 100% 75%;
+    
+    /* Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(225, 39%, 7%), hsl(260, 100%, 15%));
+    --gradient-aurora: linear-gradient(90deg, hsl(120, 100%, 75%), hsl(195, 100%, 70%), hsl(290, 100%, 70%));
+    --gradient-solar: linear-gradient(45deg, hsl(25, 100%, 65%), hsl(0, 100%, 67%));
+    --gradient-nebula: linear-gradient(180deg, hsl(320, 100%, 75%), hsl(260, 100%, 65%));
+    
+    /* Shadows & Glows */
+    --shadow-cosmic: 0 25px 50px -12px hsl(225, 39%, 3%);
+    --glow-aurora: 0 0 30px hsl(195, 100%, 70%, 0.5);
+    --glow-solar: 0 0 25px hsl(25, 100%, 65%, 0.6);
+    --glow-purple: 0 0 20px hsl(290, 100%, 70%, 0.4);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(290, 100%, 70%, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(195, 100%, 70%, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(120, 100%, 75%, 0.05) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  /* Space-themed utility classes */
+  .cosmic-gradient {
+    background: var(--gradient-cosmic);
+  }
+  
+  .aurora-gradient {
+    background: var(--gradient-aurora);
+  }
+  
+  .solar-gradient {
+    background: var(--gradient-solar);
+  }
+  
+  .nebula-gradient {
+    background: var(--gradient-nebula);
+  }
+  
+  .aurora-glow {
+    box-shadow: var(--glow-aurora);
+  }
+  
+  .solar-glow {
+    box-shadow: var(--glow-solar);
+  }
+  
+  .purple-glow {
+    box-shadow: var(--glow-purple);
+  }
+  
+  .cosmic-shadow {
+    box-shadow: var(--shadow-cosmic);
+  }
+
+  /* Interactive storm effects */
+  .storm-shake {
+    animation: storm-shake 0.5s ease-in-out infinite;
+  }
+  
+  .gps-drift {
+    animation: gps-drift 3s ease-in-out infinite;
+  }
+  
+  .power-flicker {
+    animation: power-flicker 0.3s ease-in-out infinite alternate;
+  }
+  
+  .cosmic-wave {
+    animation: cosmic-wave 4s ease-in-out infinite;
+  }
+  
+  .star-twinkle {
+    animation: star-twinkle 2s ease-in-out infinite alternate;
+  }
+  
+  .aurora-pulse {
+    animation: aurora-pulse 3s ease-in-out infinite;
+  }
+  
+  .earth-orbit {
+    animation: earth-orbit 20s linear infinite;
+  }
+  
+  .sun-spin {
+    animation: sun-spin 8s linear infinite;
+  }
+  
+  .earth-spin {
+    animation: earth-spin 24s linear infinite;
+  }
+}
+
+@layer base {
+  @keyframes storm-shake {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-2px) translateY(-1px); }
+    50% { transform: translateX(2px) translateY(1px); }
+    75% { transform: translateX(-1px) translateY(2px); }
+  }
+  
+  @keyframes gps-drift {
+    0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+    33% { transform: translateX(5px) translateY(-3px) rotate(2deg); }
+    66% { transform: translateX(-3px) translateY(4px) rotate(-1deg); }
+  }
+  
+  @keyframes power-flicker {
+    0% { opacity: 1; filter: brightness(1); }
+    100% { opacity: 0.3; filter: brightness(0.3); }
+  }
+  
+  @keyframes cosmic-wave {
+    0% { 
+      transform: translateX(-100%) scaleY(0.8) scaleX(0.5); 
+      opacity: 0; 
+      filter: blur(2px);
+    }
+    10% { 
+      opacity: 0.4; 
+      transform: translateX(-60%) scaleY(1) scaleX(0.8);
+      filter: blur(1px);
+    }
+    50% { 
+      opacity: 1; 
+      transform: translateX(0%) scaleY(1.5) scaleX(1.2);
+      filter: blur(0px);
+    }
+    90% { 
+      opacity: 0.6; 
+      transform: translateX(60%) scaleY(1) scaleX(0.8);
+      filter: blur(1px);
+    }
+    100% { 
+      transform: translateX(100%) scaleY(0.8) scaleX(0.5); 
+      opacity: 0;
+      filter: blur(2px);
+    }
+  }
+  
+  @keyframes star-twinkle {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); }
+  }
+  
+  @keyframes aurora-pulse {
+    0%, 100% { opacity: 0.6; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes earth-orbit {
+    0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+  }
+  
+  @keyframes sun-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes earth-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}
