@@ -2,56 +2,87 @@
 
 ## Project info
 
-**URL**: https://cosmic-mirror-earth.vercel.app/
+**URL**: https://cosmic-mirror-earth-main.vercel.app/
 
-## How can I edit this code?
+# 🌸 My Website — Cosmic Mirror Earth
 
-There are several ways of editing your application.
+A beautifully crafted, fully responsive website built with *React, TypeScript, Tailwind CSS, shadcn-ui, and Vite. This project combines speed, scalability, and a sleek UI to create a smooth user experience. It is deployed on **Vercel* with automatic CI/CD for effortless updates.
 
-Simply visit the (https://cosmic-mirror-earth.vercel.app/) and start prompting.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🎯 Project Objective
 
-Follow these steps:
+The goal of this project is to create a professional, elegant, and interactive website with a modern tech stack. It features a clean component-based architecture, reusable UI elements, and supports fast development workflows with Vite.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🖥 Tech Stack
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+- ⚛ *React* — Component-based UI library  
+- 🟦 *TypeScript* — Strongly typed JavaScript  
+- 🎨 *Tailwind CSS* — Utility-first styling  
+- 🧩 *shadcn-ui* — Accessible prebuilt components  
+- ⚡ *Vite* — Lightning-fast build tool  
+- ☁ *Vercel* — Deployment & hosting with CI/CD  
+
+---
+
+## 🌟 Features
+
+- 🌙 *Responsive Design* — Works across desktop, tablet, and mobile  
+- 🎨 *Modern UI* — Clean typography, animations, and polished visuals  
+- 🔄 *Fast Reload* — Instant updates in development with HMR  
+- ♻ *Component-Based* — Reusable, maintainable code structure  
+- 🚀 *Optimized Build* — Production-ready static files  
+
+
+---
+
+## ⚙ Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone <https://github.com/RitikPuranik/cosmic-mirror-earth-main>
+cd cosmic-mirror-earth#
+2. Install Dependencies
+bash
+npm install
+3. Run Locally
+bash
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+4. Build for Production
+bash
+Copy code
+npm run build
+Optimized files will be available in the /dist folder.
 
-**Use GitHub Codespaces**
+🌎 Deployment
+This project is deployed on Vercel.
+To redeploy, simply push changes to the main branch — Vercel will rebuild and redeploy automatically.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+🤝 Contributing
+We welcome contributions, suggestions, and improvements!
 
-This project is built with:
+Fork the repository
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Create your feature branch (git checkout -b feature/YourFeature)
 
-## How can I deploy this project?
+Commit your changes (git commit -m 'Add YourFeature')
 
-Simply open (https://cosmic-mirror-earth.vercel.app/) and click on Share -> Publish.
+Push to the branch (git push origin feature/YourFeature)
+
+Open a Pull Request
+
+📝 License
+This project is open-source and available under the MIT License.
+You may use, modify, and share it for personal or educational purposes.
+
+💬 Final Note
+“Great websites are built with great attention to detail.”
+
+Thank you for visiting! ⭐ If you like this project, don’t forget to star the repo!
