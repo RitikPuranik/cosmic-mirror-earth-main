@@ -1,12 +1,40 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowDown, Camera, Play } from "lucide-react";
+import { ArrowDown, Camera, Play, Sparkles, Gamepad2 } from "lucide-react";
 import { SolarSystem } from "@/components/SolarSystem";
+import { CinematicDemoModal } from "@/components/CinematicDemoModal";
 import cosmicHeroBg from "@/assets/cosmic-hero-bg.jpg";
+import { useNavigate } from "react-router-dom";
 
-export const Hero = () => {
+export const Hero = ({ onModeChange }: { onModeChange?: (mode: string) => void }) => {
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleStartAdventure = () => {
+    // Animate button click and navigate to tour
+    const button = document.querySelector('.adventure-button');
+    button?.classList.add('animate-scale-out');
+    
+    setTimeout(() => {
+      navigate('/space-tour');
+    }, 300);
+  };
+
+  const handleWatchDemo = () => {
+    setIsDemoOpen(true);
+  };
+
+  const handleDemoComplete = () => {
+    setIsDemoOpen(false);
+    if (onModeChange) {
+      onModeChange('stories');
+    }
+  };
+
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center py-20">
+    <>
+      <section className="relative min-h-[80vh] flex items-center justify-center py-20">
       {/* Cosmic background image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
@@ -38,13 +66,53 @@ export const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button size="lg" className="aurora-glow text-lg px-8 py-6">
-              <Camera className="w-5 h-5 mr-2" />
-              🚀 Start Space Adventure
-            </Button>
-            <Button variant="outline" size="lg" className="border-aurora-blue/50 hover:bg-aurora-blue/10 text-lg px-8 py-6">
-              <Play className="w-5 h-5 mr-2" />
+            <div className="relative group">
+              {/* Animated particle effects around button */}
+              <div className="absolute -inset-2 opacity-75 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute top-0 left-1/4 w-3 h-3 bg-aurora-blue rounded-full animate-float-particle"></div>
+                <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-solar-orange rounded-full animate-float-particle" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-aurora-purple rounded-full animate-float-particle" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute top-2/3 right-1/3 w-3 h-3 bg-cosmic-teal rounded-full animate-float-particle" style={{ animationDelay: '1.5s' }}></div>
+              </div>
+              
+              {/* Pulsing glow rings */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-aurora-blue via-solar-orange to-aurora-purple rounded-lg blur-lg animate-pulse-glow opacity-50"></div>
+              
+              <Button 
+                size="lg" 
+                className="adventure-button relative overflow-hidden text-lg px-8 py-6 group hover:scale-110 transition-all duration-500 shadow-2xl hover:shadow-aurora-blue border-0"
+                onClick={handleStartAdventure}
+              >
+                {/* Animated gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-aurora-blue via-solar-orange to-aurora-purple animate-gradient-shift"></div>
+                
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 ease-in-out shimmer-effect"></div>
+                
+                {/* Button content */}
+                <span className="relative flex items-center text-white font-bold">
+                  <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-180 transition-transform duration-500" />
+                  🚀 Start Space Adventure
+                </span>
+              </Button>
+            </div>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="demo-button border-aurora-blue/50 hover:bg-aurora-blue/10 text-lg px-8 py-6 group hover:scale-105 transition-all duration-300 hover:border-aurora-blue hover:shadow-lg hover:shadow-aurora-blue/30"
+              onClick={handleWatchDemo}
+            >
+              <Play className="w-5 h-5 mr-2 group-hover:animate-spin" />
               🎬 Watch Cool Demo
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="game-button border-solar-orange/50 hover:bg-solar-orange/10 text-lg px-8 py-6 group hover:scale-105 transition-all duration-300 hover:border-solar-orange hover:shadow-lg hover:shadow-solar-orange/30"
+              onClick={() => navigate('/game')}
+            >
+              <Gamepad2 className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
+              🎮 Play Defense Game
             </Button>
           </div>
 
@@ -88,5 +156,13 @@ export const Hero = () => {
         </div>
       </div>
     </section>
+    
+    {/* Demo Modal */}
+    <CinematicDemoModal 
+      isOpen={isDemoOpen}
+      onClose={() => setIsDemoOpen(false)}
+      onComplete={handleDemoComplete}
+    />
+    </>
   );
 };
